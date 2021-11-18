@@ -3,6 +3,7 @@ package com.Quiz.QuizEngine.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -10,9 +11,12 @@ import java.util.List;
 public class QuizController {
 
     private final QuizService quizService;
+    private final QuizClient quizClient;
+
     @Autowired
-    public QuizController(QuizService quizService) {
+    public QuizController(QuizService quizService,QuizClient quizClient) {
         this.quizService = quizService;
+        this.quizClient = quizClient;
     }
 
 
@@ -46,4 +50,8 @@ public class QuizController {
         quizService.addQuestion(question);
     }
 
+    @GetMapping(path = "downloadUsers")
+    public String returnUsersFromApi() throws IOException {
+        return quizClient.returnUsers();
+    }
 }
