@@ -1,6 +1,8 @@
 package com.Quiz.QuizEngine.Quiz;
 
 
+import com.Quiz.QuizEngine.Quiz.Model.Example;
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -16,10 +18,10 @@ import java.net.URL;
 public class QuizClient {
 
   public String returnUsers () throws IOException {
-    URL url = new URL("https://jsonplaceholder.typicode.com/users");
+    URL url = new URL("https://jsonplaceholder.typicode.com/users/1");
     InputStreamReader reader = new InputStreamReader(url.openStream());
-    JsonObject jsonObject = new JsonParser().parse(reader).getAsJsonObject();
+    Example jsonObject = new Gson().fromJson(reader,Example.class);
 
-    return jsonObject.get("address").getAsString();
+    return jsonObject.toString();
   }
 }
