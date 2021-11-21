@@ -1,5 +1,6 @@
 package com.Quiz.QuizEngine.Quiz;
 
+import com.Quiz.QuizEngine.Quiz.Model.Example;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -51,7 +52,7 @@ public class QuizController {
     }
 
     @GetMapping(path = "downloadUsers")
-    public String returnUsersFromApi() throws IOException {
+    public Example returnUsersFromApi() throws IOException {
         return quizClient.returnUsers();
     }
 }

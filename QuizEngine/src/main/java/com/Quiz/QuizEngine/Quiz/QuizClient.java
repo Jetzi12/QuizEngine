@@ -17,11 +17,11 @@ import java.net.URL;
 @Component
 public class QuizClient {
 
-  public String returnUsers () throws IOException {
+  public Example returnUsers () throws IOException {
     URL url = new URL("https://jsonplaceholder.typicode.com/users/1");
     InputStreamReader reader = new InputStreamReader(url.openStream());
     Example jsonObject = new Gson().fromJson(reader,Example.class);
 
-    return jsonObject.toString();
+    return jsonObject;
   }
 }
