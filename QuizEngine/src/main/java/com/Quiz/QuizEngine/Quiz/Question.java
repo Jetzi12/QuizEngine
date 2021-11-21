@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Builder
 @Getter
 @Setter
+
 public class Question {
     @Id
     @SequenceGenerator(

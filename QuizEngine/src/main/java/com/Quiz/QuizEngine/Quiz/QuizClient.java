@@ -16,7 +16,7 @@ import java.net.URL;
 public class QuizClient {
 
   public String returnUsers () throws IOException {
-    URL url = new URL("https://jsonplaceholder.typicode.com/users/1");
+    URL url = new URL("https://jsonplaceholder.typicode.com/users");
     InputStreamReader reader = new InputStreamReader(url.openStream());
     JsonObject jsonObject = new JsonParser().parse(reader).getAsJsonObject();
 
